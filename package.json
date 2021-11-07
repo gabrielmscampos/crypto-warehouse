@@ -1,0 +1,19 @@
+{
+  "name": "crypto-warehouse",
+  "version": "1.0.0",
+  "main": "src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node src/index.js",
+    "start:dev": "STAGE=DEV node src/index.js",
+    "start:prod": "docker-compose up -d --force-recreate --build",
+    "start:mongo": "docker run --rm -it --name mongo-cryptowarehouse -v ./mongodb-data:/data/db -p 27017:27017 mongo",
+    "start:mongoexpress": "docker run --rm -it --name mongo-express-gui -e ME_CONFIG_MONGODB_SERVER=172.17.0.3 -p 8081:8081 mongo-express"
+  },
+  "author": "Gabriel Moreira",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "mongodb": "^4.1.4",
+    "web3": "^1.6.0"
+  }
+}
